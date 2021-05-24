@@ -1,52 +1,78 @@
 import axios from "axios";
-import React from "react";
+import { useState } from "react";
+import Layout from '../../components/Layout/Layout'
+import { Redirect } from 'react-router-dom'
+import { createPost } from '../../services/posts'
 
-const CreatePost = () => {
+const CreatePost = (props) => {
+  const [post, setPost] = useState({
+    title: "",
+    imgURL: "",
+    content: "",
+    author: "",
+  });
+
+  const [isCreated, setCreated] = useState(false);
+
+  const handleChange = (event) => {
+    const { title, value } = event.target;
+    setPost({
+      ...post,
+      [title]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const created = await createPost(post);
+    setCreated({ created });
+  };
+
+  if (isCreated) {
+    return <Redirect to={`/`} />
+  }
+
   return (
     <div>
-      <form>
+      <form className="create-post" onSubmit={handleSubmit}>
         <h2>Create Post</h2>
         <label htmlFor="title">Title</label>
         <input
           className="title"
           type="text"
           placeholder="add your title"
-          value=""
-          onChange=""
+          value={post.title}
+          onChange="{handleChange}"
         />
         <input
           className="imgURL"
           type="img"
           placeholder=""
-          value=""
-          onChange=""
-        />
-        <label htmlFor="date">Date</label>
-        <input
-          className="date"
-          type="date"
-          placeholder="MM/DD/YYYY"
-          value=""
+          value={post.imgURL }
           onChange=""
         />
         <label htmlFor="body">Body</label>
         <textarea
           className="message"
+          rows={10}
           type="text"
           placeHolder="message"
-          value=""
-          onChange=""
+          value={post.content}
+          onChange={handleChange}
+        />
+        <label htmlFor="author">Author</label>
+        <input
+          className="author"
+          type="text"
+          placeholder="author's name"
+          value={post.author}
+          onChange={handleChange}
         />
 
-        <button>Save Post</button>
+        <button>Save your Post</button>
       </form>
     </div>
   );
 };
-
-//title
-//imgurl
-//content
-//author
 
 export default CreatePost;
