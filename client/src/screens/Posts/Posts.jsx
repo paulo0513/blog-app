@@ -11,6 +11,7 @@ const Posts = () => {
     const fetchPosts = async () => {
       const allPosts = await getPosts();
       console.log(allPosts);
+      setPosts(allPosts);
     };
     fetchPosts();
   }, []);
@@ -19,7 +20,14 @@ const Posts = () => {
     <Layout>
       <main className="posts-container">
         <span>Posts Page</span>
-        <Post />
+        {posts.map((post) => (
+          <Post
+            title={post.title}
+            content={post.content}
+            imgURL={post.imgURL}
+            author={post.author}
+          />
+        ))}
       </main>
     </Layout>
   );

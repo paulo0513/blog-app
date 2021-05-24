@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <div className="post">
-      <h3>Title</h3>
-      <img src="" alt="blog-post-visual" />
-      <p>Content</p>
+      <h3>Title {props.title}</h3>
+      <img src={props.imgURL} alt="blog-post-visual" />
+      <p>Content {props.content}</p>
       <p>
-        <em>- Author</em>
+        <em>- Author {props.author}</em>
       </p>
     </div>
   );
