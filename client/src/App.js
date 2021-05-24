@@ -1,8 +1,9 @@
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import './screens/Posts/Posts'
-import './screens/CreatePost/CreatePost'
-import './screens/PostDetail/PostDetail'
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Posts from "./screens/Posts/Posts";
+import "./screens/Posts/Posts";
+import "./screens/CreatePost/CreatePost";
+import "./screens/PostDetail/PostDetail";
 
 function App() {
   return (
@@ -19,7 +20,6 @@ function App() {
           <PostDetail />
         </Route>
       </Switch>
-
     </div>
   );
 }
