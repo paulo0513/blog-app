@@ -19,9 +19,9 @@ const Posts = () => {
   return (
     <Layout>
       <main className="posts-container">
-        <span>Posts Page</span>
         {posts.map((post) => (
           <Post
+            _id={post.id}
             title={post.title}
             content={post.content}
             imgURL={post.imgURL}

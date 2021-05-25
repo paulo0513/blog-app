@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 const Post = (props) => {
   // need to add links for post to post detail
   return (
-    <div className="post">
-      <h3>Title {props.title}</h3>
-      <img src={props.imgURL} alt="blog-post-visual" />
-      <p>Content {props.content}</p>
-      <p>
-        <em>- Author {props.author}</em>
-      </p>
-    </div>
+    <Link to={`/${props._id}`}>
+      <div className="post">
+        <h3>{props.title}</h3>
+        <img src={props.imgURL} alt="blog-post-visual" />
+        <p>{props.content}</p>
+        <p>
+          <em>- {props.author}</em>
+        </p>
+      </div>
+    </Link>
   );
 };
 
