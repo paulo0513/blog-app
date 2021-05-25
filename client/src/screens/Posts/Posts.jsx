@@ -21,7 +21,7 @@ const Posts = () => {
       <main className="posts-container">
         {posts.map((post) => (
           <Post
-            _id={post.id}
+            _id={post._id}
             title={post.title}
             content={post.content}
             imgURL={post.imgURL}
