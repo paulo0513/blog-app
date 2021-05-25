@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
-import Layout from '../../components/Layout/Layout'
-import { Redirect } from 'react-router-dom'
-import { createPost } from '../../services/posts'
+import Layout from "../../components/Layout/Layout";
+import { Redirect } from "react-router-dom";
+import { createPost } from "../../services/posts";
 
 const CreatePost = (props) => {
   const [post, setPost] = useState({
@@ -29,49 +29,51 @@ const CreatePost = (props) => {
   };
 
   if (isCreated) {
-    return <Redirect to={`/`} />
+    return <Redirect to={`/`} />;
   }
 
   return (
-    <div>
-      <form className="create-post" onSubmit={handleSubmit}>
-        <h2>Create Post</h2>
-        <label htmlFor="title">Title</label>
-        <input
-          className="title"
-          type="text"
-          placeholder="add your title"
-          value={post.title}
-          onChange="{handleChange}"
-        />
-        <input
-          className="imgURL"
-          type="img"
-          placeholder=""
-          value={post.imgURL }
-          onChange=""
-        />
-        <label htmlFor="body">Body</label>
-        <textarea
-          className="message"
-          rows={10}
-          type="text"
-          placeHolder="message"
-          value={post.content}
-          onChange={handleChange}
-        />
-        <label htmlFor="author">Author</label>
-        <input
-          className="author"
-          type="text"
-          placeholder="author's name"
-          value={post.author}
-          onChange={handleChange}
-        />
+    <Layout>
+      <div>
+        <form className="create-post" onSubmit={handleSubmit}>
+          <h2>Create Post</h2>
+          <label htmlFor="title">Title</label>
+          <input
+            className="title"
+            type="text"
+            placeholder="add your title"
+            value={post.title}
+            onChange="{handleChange}"
+          />
+          <input
+            className="imgURL"
+            type="img"
+            placeholder=""
+            value={post.imgURL}
+            onChange=""
+          />
+          <label htmlFor="body">Body</label>
+          <textarea
+            className="message"
+            rows={10}
+            type="text"
+            placeHolder="message"
+            value={post.content}
+            onChange={handleChange}
+          />
+          <label htmlFor="author">Author</label>
+          <input
+            className="author"
+            type="text"
+            placeholder="author's name"
+            value={post.author}
+            onChange={handleChange}
+          />
 
-        <button>Save your Post</button>
-      </form>
-    </div>
+          <button>Save your Post</button>
+        </form>
+      </div>
+    </Layout>
   );
 };
 
