@@ -8,13 +8,13 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Posts />
         </Route>
         <Route path="/create-post">
           <CreatePost />
-        </Route>
-        <Route path="/:id/edit"></Route>
+        </Route> */}
+        {/* <Route path="/:id/edit"></Route> */}
         <Route path="/:id">
           <PostDetail />
         </Route>
